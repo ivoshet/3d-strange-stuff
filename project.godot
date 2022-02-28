@@ -14,6 +14,10 @@ config/name="Squash Crisp"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalAudioStreamPlayer="*res://AudioStreamPlayer.tscn"
+
 [display]
 
 window/size/width=720

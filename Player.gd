@@ -24,9 +24,12 @@ func _physics_process(delta):
 		direction.z -= 1
 	# если движение было, то нормализуем вектор движения
 	if direction != Vector3.ZERO:
+		$AnimationPlayer.playback_speed = 4
 		direction = direction.normalized()
 #		перевод координат объекта в глобальные координаты
 		$Pivot.look_at(translation + direction, Vector3.UP)
+	else:
+		$AnimationPlayer.playback_speed = 1
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
 	velocity.y -= fall_acceleration * delta
@@ -41,6 +44,8 @@ func _physics_process(delta):
 			if Vector3.UP.dot(collision.normal) > 0.1:
 				mob.squash()
 				velocity.y = bounce_impulse
+#	для чего следующая строка я не знаю
+	$Pivot.rotation.x = PI/6*velocity.y/jump_impulse
 	
 func die():
 	emit_signal("hit")
