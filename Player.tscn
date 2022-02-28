@@ -4,10 +4,11 @@
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
+radius = 1.30608
 height = 0.347252
 
 [sub_resource type="CylinderShape" id=2]
-radius = 1.54209
+radius = 1.47054
 height = 0.398421
 
 [node name="Player" type="KinematicBody"]
@@ -28,7 +29,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="MobDetector"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.580537, 0.400949 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.542627, 0.400949 )
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="MobDetector" to="." method="_on_MobDetector_body_entered"]
